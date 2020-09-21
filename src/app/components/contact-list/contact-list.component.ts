@@ -13,6 +13,7 @@ export class ContactListComponent implements OnInit {
 
   @Input() contacts: Contact[];
   @Output() selectContact = new EventEmitter();
+  @Output() addContact = new EventEmitter();
 
   constructor() {
     this.defaultImage = img;

@@ -16,11 +16,15 @@ export class FakeServerService implements InMemoryDbService {
   }
 
   randomSeries = (length) => {
-    let out = ''
+    let out = '';
     for (let i = 0; i < length; i++) {
       out += this.randomNumber()
     }
     return out
+  }
+
+  genId(): string {
+    return this.randomSeries(10)
   }
 
   createDb(): {contacts: Contact[]} {
@@ -36,19 +40,6 @@ export class FakeServerService implements InMemoryDbService {
       })
     }
 
-    const sorted = contacts.sort((contactA, contactB) => {
-
-      if (contactA.firstName.toLowerCase() < contactB.firstName.toLowerCase()) { return -1; }
-      if (contactA.firstName.toLowerCase() > contactB.firstName.toLowerCase()) { return 1; }
-      else {
-        if (contactA.lastName && contactB.lastName) {
-          if (contactA.lastName.toLowerCase() < contactB.lastName.toLowerCase()) { return -1; }
-          if (contactA.lastName.toLowerCase() > contactB.lastName.toLowerCase()) { return 1; }
-          else { return 0; }
-        }
-      }
-    });
-
-    return {contacts: sorted}
+    return {contacts}
   }
 }

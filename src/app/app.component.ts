@@ -15,11 +15,30 @@ export class AppComponent implements OnInit {
   constructor(private contactsService: ContactsService) {
   }
 
-  ngOnInit(): void {
+  updateContacts(idToSelect?: string): void {
     this.contactsService.getContacts().subscribe(contacts => {
       this.contacts = contacts
-      this.selContact = contacts[0]
+      if (!idToSelect) {
+        this.selContact = contacts[0]
+      } else {
+        const i = contacts.findIndex(c => c.id === idToSelect)
+        if (i === -1) {
+          this.selContact = contacts[0]
+        } else {
+          this.selContact = contacts[i]
+        }
+      }
     });
+  }
+
+  ngOnInit(): void {
+    this.updateContacts()
+  }
+
+  startNewContact(): void {
+    this.selContact = {
+      id: '-1'
+    }
   }
 
   delete(contact: Contact): void {
@@ -31,5 +50,23 @@ export class AppComponent implements OnInit {
 
   selectContact(contact: Contact): void {
     this.selContact = contact
+  }
+
+  addContact(contact: Contact): void {
+    this.contactsService.addContact(contact).subscribe((res) => {
+      this.updateContacts(res.id)
+    })
+  }
+
+  updateContact(contact: Contact): void {
+    const newVersion = {...this.selContact}
+    for (const key in contact) {
+      if (contact[key]) {
+        newVersion[key] = contact[key]
+      }
+    }
+    this.contactsService.updateContact(newVersion).subscribe((res) => {
+      this.updateContacts(newVersion.id)
+    })
   }
 }
