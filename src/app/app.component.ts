@@ -10,11 +10,15 @@ import {Contact} from '../types/Contact';
 export class AppComponent implements OnInit {
   title = 'addressbookangular';
   contacts: Contact[]
+  selContact?: Contact
 
   constructor(private contactsService: ContactsService) {
   }
 
   ngOnInit(): void {
-    this.contactsService.getContacts().subscribe(contacts => this.contacts = contacts);
+    this.contactsService.getContacts().subscribe(contacts => {
+      this.contacts = contacts
+      this.selContact = contacts[0]
+    });
   }
 }

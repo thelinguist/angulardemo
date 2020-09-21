@@ -1,0 +1,5 @@
+<div *ngIf="contacts">
+  <div *ngFor="let contact of contacts">
+    <app-contact-list-item [contact]="contact"></app-contact-list-item>
+  </div>
+</div>

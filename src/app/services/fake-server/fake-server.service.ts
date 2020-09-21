@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {InMemoryDbService} from 'angular-in-memory-web-api';
 import {Contact} from '../../../types/Contact';
 
-const FIRST_NAMES = ['Ashley', 'Jonathan', 'Harold', 'Bernie', 'Samantha', 'Jessica', 'Taylor', 'McKay', 'McKenzie', 'McKenna']
-const LAST_NAMES = ['Smith', 'Johnson', 'Rodriguez', 'Jackson', 'Li', 'Modi', 'Merkel', 'Lincoln']
+const FIRST_NAMES = ['Ashley', 'Jonathan', 'Harold', 'Bernie', 'Samantha', 'Jessica', 'Taylor', 'McKay', 'McKenzie', 'McKenna', 'Ron', 'Harry', 'Albert']
+const LAST_NAMES = ['Smith', 'Johnson', 'Rodriguez', 'Jackson', 'Li', 'Modi', 'Merkel', 'Lincoln', 'Doe', 'Jensen', 'Carter']
 const EMAIL_ENDINGS = ['@gmail.com', '@yahoo.com', '@hotmail.com', '@email.com']
 
 @Injectable({

@@ -1,1 +1,2 @@
-<div *ngFor="let contact of contacts">{{contact.firstName}} {{contact.lastName}} {{contact.email}} {{contact.phone}}</div>
+<app-contact-list class="contactList" [contacts]="contacts"></app-contact-list>
+<app-contact-details class="contactDetails" [selContact]="selContact"></app-contact-details>

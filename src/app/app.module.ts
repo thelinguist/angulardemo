@@ -6,10 +6,18 @@ import { FakeServerService } from './services/fake-server/fake-server.service';
 
 
 import { AppComponent } from './app.component';
+import { ContactListComponent } from './components/contact-list/contact-list.component';
+import { ContactListItemComponent } from './components/contact-list-item/contact-list-item.component';
+import { PhonePipe } from './pipes/phone.pipe';
+import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContactListComponent,
+    ContactListItemComponent,
+    PhonePipe,
+    ContactDetailsComponent
   ],
   imports: [
     BrowserModule,
