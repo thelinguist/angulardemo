@@ -1,0 +1,35 @@
+:host {
+  margin: 4rem;
+  background-color: rgba(255,255,255,0.3);
+  height: 100%;
+  border-radius:4px;
+  position: relative;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(34,36,38,.15);
+  box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+}
+
+.buttons {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.buttons > button {
+  margin: 1rem;
+}
+
+.userIcon {
+  border-radius: 50%;
+  width: 150px;
+}
+
+.Profile-Contact {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.Profile-Contact > div {
+  margin: 1em;
+}

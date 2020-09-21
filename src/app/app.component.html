@@ -1,2 +1,5 @@
-<app-contact-list class="contactList" [contacts]="contacts"></app-contact-list>
-<app-contact-details class="contactDetails" [selContact]="selContact"></app-contact-details>
+<app-contact-list class="contactList" [contacts]="contacts" (selectContact)="selectContact($event)"></app-contact-list>
+<div class="main">
+  <h1>Address Book</h1>
+  <app-contact-details [selContact]="selContact" (delete)="delete(selContact)"></app-contact-details>
+</div>

@@ -1,7 +1,16 @@
 <div *ngIf="selContact">
-  <table>
-    <tr><td>first:</td><td>{{selContact.firstName}}</td></tr>
-    <tr><td>last:</td><td>{{selContact.lastName}}</td></tr>
-    <tr><td>phone:</td><td>{{selContact.phone}}</td></tr>
-    <tr><td>email:</td><td>{{selContact.email}}</td></tr>
-  </table></div>
+  <div class="buttons">
+    <button (click)="startEdit" mat-flat-button>Edit</button>
+    <button (click)="onDelete()" color="warn" mat-flat-button>Delete</button>
+  </div>
+  <div class="Profile-Contact">
+    <div>
+      <img [src]="selContact.photoURL||defaultImage" class="userIcon"/>
+    </div>
+    <div>
+      <h2>{{selContact.firstName}} {{selContact.lastName}}</h2>
+      <a *ngIf="selContact.email" href="mailto:{{selContact.email}}"><h3>{{selContact.email}}</h3></a>
+      <a *ngIf="selContact.phone" href="tel:{{selContact.phone}}"><h3>{{selContact.phone | phone}}</h3></a>
+    </div>
+  </div>
+</div>

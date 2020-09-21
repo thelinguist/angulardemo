@@ -1,3 +1,38 @@
 :host {
   flex-basis: 20rem;
+  background: var(--BGDark);
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.list {
+  flex-grow: 2;
+  padding: 1rem;
+}
+
+.buttonContainer {
+  height: 3rem;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+}
+
+.userIcon {
+  height: 3rem;
+  border-radius: 1.5rem;
+  margin: 0 .5rem;
+}
+
+.li {
+  cursor: pointer;
+  display: flex;
+  align-content: center;
+  width: 100%;
 }

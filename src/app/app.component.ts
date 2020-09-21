@@ -10,7 +10,7 @@ import {Contact} from '../types/Contact';
 export class AppComponent implements OnInit {
   title = 'addressbookangular';
   contacts: Contact[]
-  selContact?: Contact
+  selContact: Contact
 
   constructor(private contactsService: ContactsService) {
   }
@@ -20,5 +20,16 @@ export class AppComponent implements OnInit {
       this.contacts = contacts
       this.selContact = contacts[0]
     });
+  }
+
+  delete(contact: Contact): void {
+    this.contacts = this.contacts.filter(c => c !== contact);
+    this.contactsService.deleteContact(contact).subscribe(() => {
+      this.selContact = undefined
+    });
+  }
+
+  selectContact(contact: Contact): void {
+    this.selContact = contact
   }
 }
